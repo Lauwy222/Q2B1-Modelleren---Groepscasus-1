@@ -23,30 +23,24 @@
 \usepackage{booktabs}
 \usepackage{threeparttable}
 
+% ----------------------------
+% APA figure/table captions + autoref labels (Dutch)
+% ----------------------------
+\captionsetup{
+  font=small,
+  labelfont=bf,
+  textfont=it
+}
 
-% \DeclareRobustCommand{\slashcirc}{{\mathpalette\doslashcirc\relax}}
+\addto\extrasdutch{%
+  \renewcommand{\figureautorefname}{Figuur}%
+  \renewcommand{\tableautorefname}{Tabel}%
+}
+\renewcommand{\subfigureautorefname}{Figuur}
 
-% \makeatletter
-% \newcommand\doslashcirc[2]{%
-%   \sbox\z@{$#1\m@th\circ$}%
-%   \setlength\unitlength{\wd\z@}
-%   \begin{picture}(1,1)
-%   \roundcap
-%   \put(0,0){\box\z@}
-%   \put(0,0){\line(1,1){1}}
-%   \end{picture}%
-% }
-% \makeatother
-
-
-% %% Some packages you will need
-% \usepackage{pgfplots}
-% \usepackage{pgfplotstable}
-% \usepackage{booktabs}
-% \usepackage{array}
-% \usepackage{colortbl}
-
-
+% ----------------------------
+% Colors + listings (unchanged)
+% ----------------------------
 \definecolor{arduinoorange}{HTML}{FFA500}
 \definecolor{arduinogray}{HTML}{808080}
 \definecolor{arduinoblue}{HTML}{007ACC}
@@ -101,6 +95,9 @@
   postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{red}\hookrightarrow\space}},
 }
 
+% ----------------------------
+% biblatex APA (unchanged)
+% ----------------------------
 \usepackage[
   style=apa,
   backend=biber,
@@ -119,32 +116,34 @@
     backrefpage = {blz.},
     backrefpages = {blz.},
 }
+
 \makeglossaries
 \definecolor{Grey1}{HTML}{343434}
+
 \graphicspath{{./Media/Figuren/}}
- \geometry{
+
+\geometry{
  a4paper,
  total={170mm,257mm},
  left=20mm,
  top=20mm,
- }
+}
+
 \hypersetup{
     colorlinks=true,
     linkcolor=blue,
-    filecolor=magenta,      
+    filecolor=magenta,
     urlcolor=cyan,
     pdftitle={Overleaf Example},
     pdfpagemode=FullScreen,
-    }
+}
 
 \sisetup{
-  range-phrase = --,   % en-dash i.p.v. "to"
-  range-units  = single, % zet de eenheid één keer achteraan
+  range-phrase = --,
+  range-units  = single,
   table-number-alignment = center,
   table-text-alignment  = center
 }
-
-
 
 \begin{document}
 \include{Main/construction/frontpage}
@@ -155,8 +154,11 @@
 
 \include{Main/Chapters/Introductie/Inleiding}
 \include{Main/Chapters/Deelvraag/Werkwijze}
-
-
-\include{Main/construction/glossary}
-\include{Main/construction/sources}
+\include{Main/Chapters/Deelvraag/Resultaten}
+\include{Main/Chapters/Deelvraag/Discussie}
+\include{Main/Chapters/Deelvraag/Conclusie}
+\appendix
+\include{Main/construction/Appendix}
+% \include{Main/construction/glossary}
+% \include{Main/construction/sources}
 \end{document}
