@@ -1,0 +1,162 @@
+\documentclass[a4paper,12pt,dutch]{article}
+\usepackage{glossaries}
+\usepackage[T1]{fontenc}
+\usepackage{babel}
+\usepackage{graphicx}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{hyperref}
+\usepackage{blindtext}
+\usepackage{geometry}
+\usepackage{parskip}
+\usepackage{mathtools}
+\usepackage{siunitx}
+\usepackage{listings}
+\usepackage{csquotes}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{comment}
+\usepackage{pdfpages}
+\usepackage{float}
+\usepackage{pict2e}
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{threeparttable}
+
+
+% \DeclareRobustCommand{\slashcirc}{{\mathpalette\doslashcirc\relax}}
+
+% \makeatletter
+% \newcommand\doslashcirc[2]{%
+%   \sbox\z@{$#1\m@th\circ$}%
+%   \setlength\unitlength{\wd\z@}
+%   \begin{picture}(1,1)
+%   \roundcap
+%   \put(0,0){\box\z@}
+%   \put(0,0){\line(1,1){1}}
+%   \end{picture}%
+% }
+% \makeatother
+
+
+% %% Some packages you will need
+% \usepackage{pgfplots}
+% \usepackage{pgfplotstable}
+% \usepackage{booktabs}
+% \usepackage{array}
+% \usepackage{colortbl}
+
+
+\definecolor{arduinoorange}{HTML}{FFA500}
+\definecolor{arduinogray}{HTML}{808080}
+\definecolor{arduinoblue}{HTML}{007ACC}
+\definecolor{arduinogreen}{HTML}{469B00}
+
+\lstset{
+  language=C++,
+  basicstyle=\ttfamily\footnotesize,
+  keywordstyle=\color{arduinoorange},
+  stringstyle=\color{arduinogreen},
+  commentstyle=\color{arduinogray},
+  moredelim=[s][\color{arduinoblue}]{\#}{\ },
+  morekeywords={digitalRead,digitalWrite,pinMode,analogRead,analogWrite,Serial,begin,HIGH,LOW},
+  frame=tb,
+  tabsize=4,
+  showstringspaces=false,
+  breaklines=true,
+  numbers=left,
+  numberstyle=\tiny\color{arduinogray},
+  numbersep=5pt,
+  extendedchars=true,
+  literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1,
+}
+
+\lstdefinestyle{Arduino}
+{
+  language=C++,
+  basicstyle=\ttfamily\footnotesize,
+  keywordstyle=\color{arduinoorange},
+  stringstyle=\color{arduinogreen},
+  commentstyle=\color{arduinogray},
+  moredelim=[s][\color{arduinoblue}]{\#}{\ },
+  morekeywords={digitalRead,digitalWrite,pinMode,analogRead,analogWrite,Serial,begin},
+  frame=tb,
+  tabsize=4,
+  showstringspaces=false,
+  breaklines=true,
+  numbers=left,
+  numberstyle=\tiny\color{arduinogray},
+  numbersep=5pt,
+  extendedchars=true,
+  literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1,
+  backgroundcolor=\color{black!85},
+  rulecolor=\color{arduinoorange},
+  frame=single,
+  frameround=tttt,
+  framexleftmargin=6pt,
+  framexrightmargin=6pt,
+  framextopmargin=6pt,
+  framexbottommargin=6pt,
+  breaklines=true,
+  postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{red}\hookrightarrow\space}},
+}
+
+\usepackage[
+  style=apa,
+  backend=biber,
+  backref=true,
+  backrefstyle=none,
+  sortcites=true,
+  sorting=nyt,
+  doi=false,
+  maxcitenames=3,
+  language=american
+]{biblatex}
+\DeclareLanguageMapping{dutch}{dutch-apa}
+\addbibresource{Main/construction/Sources.bib}
+
+\DefineBibliographyStrings{dutch}{
+    backrefpage = {blz.},
+    backrefpages = {blz.},
+}
+\makeglossaries
+\definecolor{Grey1}{HTML}{343434}
+\graphicspath{{./Media/Figuren/}}
+ \geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=20mm,
+ }
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Overleaf Example},
+    pdfpagemode=FullScreen,
+    }
+
+\sisetup{
+  range-phrase = --,   % en-dash i.p.v. "to"
+  range-units  = single, % zet de eenheid één keer achteraan
+  table-number-alignment = center,
+  table-text-alignment  = center
+}
+
+
+
+\begin{document}
+\include{Main/construction/frontpage}
+\maketitle
+\include{Main/construction/version}
+\include{Main/construction/toc}
+\include{Main/construction/lof}
+
+\include{Main/Chapters/Introductie/Inleiding}
+\include{Main/Chapters/Deelvraag/Werkwijze}
+
+
+\include{Main/construction/glossary}
+\include{Main/construction/sources}
+\end{document}
